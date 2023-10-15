@@ -1,9 +1,10 @@
 (ns respatialized.quil.20231015
   (:require [thi.ng.geom.core :as g]
-            [quil.core :as q]))
+            [thi.ng.geom.types :as geom-types]
+            [thi.ng.geom.vector :as vec]
+            [quil.core :as q]
+            [respatialized.render :as render]))
 
-(ns sketch
-  (:require [quil.core :as q]))
 
 (defn setup []
   (q/frame-rate 1)                    ;; Set framerate to 1 FPS
@@ -16,8 +17,10 @@
 
   (let [diam (q/random 100)             ;; Set the diameter to a value between 0 and 100
         x    (q/random (q/width))       ;; Set the x coord randomly within the sketch
-        y    (q/random (q/height))]     ;; Set the y coord randomly within the sketch
-    (q/ellipse x y diam diam)))         ;; Draw a circle at x y with the correct diameter
+        y    (q/random (q/height))    ;; Set the y coord randomly within the sketch
+        ellipse (geom-types/->Ellipse2 (vec/vec2 x y) diam diam) ;; ellipse geometry
+        ]
+    (render/draw ellipse)))         ;; Draw a circle at x y with the correct diameter
 
 (defn run [opts]
   (q/defsketch example
