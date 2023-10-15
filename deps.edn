@@ -1,0 +1,9 @@
+{:deps {quil/quil
+        ;; can't use via deps.edn (yet) due to a batik classpath issue
+        #_{:git/url "https://github.com/quil/quil" :sha "919462a5474b8c0c4dbe3034b18349fe1f3b0771"
+           :exclusions [org.apache.xmlgraphics/batik-svggen org.apache.xmlgraphics/batik-dom]}
+        {:mvn/version "4.0.0-SNAPSHOT"}
+        thi.ng/geom {:mvn/version "1.0.0"}
+        org.apache.xmlgraphics/batik-svggen {:mvn/version "1.17"}
+        org.apache.xmlgraphics/batik-dom {:mvn/version "1.17"}
+        }}
